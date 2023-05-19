@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Images Demo</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.classless.min.css"
+    />
+    <style>
+      #roundedImg {
+        border-radius: 50%;
+        height: 200px;
+        width: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div>
+        <img
+          id="roundedImg"
+          src="images/5eddd950e5cf1ec1fa5c2d83_virtual-influencer-john-pork.jpg"
+        />
+        <p>describe image above</p>
+      </div>
+      <div>
+        <img id="roundedImg" src="images/Bingus-on-Reddit.jpg" />
+        <p>describe image above</p>
+      </div>
+      <div>
+        <img id="roundedImg" src="images/download.jpg" />
+        <p>describe image above</p>
+      </div>
+    </main>
+    <script>
+      let count = 1;
+
+      const messageParagraphs = document.querySelectorAll("p");
+      for (const paragraph of messageParagraphs) {
+        paragraph.innerText = `Legend ${count}`;
+        paragraph.style.border = "1px solid blue";
+        count++;
+      }
+    </script>
+  </body>
+</html>

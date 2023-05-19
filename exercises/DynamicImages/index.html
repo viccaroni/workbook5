@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dynamic Images</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.classless.min.css"
+    />
+  </head>
+  <body>
+    <main>
+      <label for="img-DDl">Meme Collection</label>
+      <select name="images" id="img-DDL">
+        <option value="">Select Image....</option>
+      </select>
+      <button onclick="displayImage()">Add Image</button>
+      <button onclick="clearImages()">Clear Image</button>
+      <div id="images-Div"></div>
+    </main>
+    <script>
+      "use strict";
+
+      let imageFiles = [
+        {
+          name: "images/jabu.jpg",
+          description: "Quieres Dog",
+        },
+        {
+          name: "images/johnpork.jpg",
+          description: "John Pork",
+        },
+        { name: "images/Big Floppa.jpg", description: "Big floppa" },
+        { name: "images/bingus.jpg", description: "Bingus" },
+        {
+          name: "images/swmg.jpg",
+          description: "Shadow wizard money gang",
+        },
+        { name: "images/running.jpg", description: "Skeletor Running Away"}
+      ];
+      let imageSelect = document.querySelector("#img-DDL");
+      let imageDisplay = document.querySelector("#images-Div");
+      function displayList() {
+        for (const image of imageFiles) {
+          let option = document.createElement("Option");
+          option.value = image.name;
+          option.textContent = image.description;
+          imageSelect.appendChild(option);
+        }
+      }
+      displayList();
+      function displayImage() {
+        let imageElement = document.createElement("img");
+        let imageSource = imageSelect.value;
+        imageElement.src = imageSource;
+        imageDisplay.appendChild(imageElement);
+      }
+      function clearImages(){
+        imageDisplay.innerHTML = ``
+      }
+    </script>
+  </body>
+</html>
